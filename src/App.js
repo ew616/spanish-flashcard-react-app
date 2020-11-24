@@ -1,13 +1,21 @@
+import React from 'react'
 import './App.css';
+import useForm from 'react-hook-form';
 import Flashcard from './Flashcard';
 import WordBank from './WordBank';
+import AddWord from './AddWord';
+import PrintWordBank from './PrintWordBank';
 
 function App() {
-  const testWordBank = {
-    id: 1,
-    spanishWord: 'mano',
-    englishWord: 'hand'
-  }
+  const testWordBank = [
+    {
+        id: 1,
+        spanishWord: 'mano',
+        englishWord: 'hand'
+      }
+    ]
+
+    console.log(testWordBank.spanishWord)
   
   return (
     <div className="App">
@@ -16,15 +24,24 @@ function App() {
           Spanish Flashcards
         </h1>
 
-        <WordBank spanishWord='vaca' englishWord ='cow'/>
+        <PrintWordBank />
+
+        <br />
+
+        <WordBank />
         
         <br />
+
+        <AddWord />
+
+        <br />
+
         
         <Flashcard spanishWord='vaca' englishWord ='cow'/>
 
         <br />
 
-        <Flashcard spanishWord={testWordBank.spanishWord} englishWord ={testWordBank.englishWord} />
+        <Flashcard spanishWord={testWordBank[0].spanishWord} englishWord ={testWordBank[0].englishWord} />
 
       </header>
     </div>
