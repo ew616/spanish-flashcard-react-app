@@ -1,45 +1,39 @@
-import React, { useState } from 'react';
-import { useForm } from 'react-hook-form';
-import Flashcard from './Flashcard';
+import React, { useState } from "react";
+import { v4 as uuid } from "uuid";
+import NewWordForm from "./NewWordForm";
 
-function AddWord() {    
-    const testWordBank = [
-    {
-        id: 1,
-        spanishWord: 'mano',
-        englishWord: 'hand'
-      },
-    ]
+function AddWord() {
+  const blankWord = {
+    spanishWord: "",
+    englishWord: "",
+    id: "",
+  };
 
-    const { register, handleSubmit } = useForm();
- 
-    const { word, setWord } = useState();
+  const [words, setWords] = useState([
+    { id: 1, spanishWord: "pie", englishWord: "foot" },
+    { id: 2, spanishWord: "pollo", englishWord: "chicken" },
+    { id: 3, spanishWord: "pastilla", englishWord: "pill" },
+  ]);
 
-    const onSubmit = (data) => {
-        console.log(data)
-        data.id = testWordBank[testWordBank.length - 1].id + 1;
-        testWordBank.push(data);
-        console.log(testWordBank);
-    }
+  const addNewWord = (a, b) => {
+    setWords([...words, { spanishWord: a, englishWord: b, id: uuid() }]);
+  };
 
-    return ( 
-    <form onSubmit={handleSubmit(onSubmit)}>
-        <input 
-            type="text" 
-            name="spanishWord" 
-            placeholder='Spanish' 
-            ref={register({ required: true })}    
-        />
-            
-        <input 
-            type="text" 
-            name="englishWord"
-            placeholder='English'
-            ref={register({ required: true })}
-        />
-        <input type="submit" value="Submit" />
-    </form>
-    );
+  return (
+    <div>
+      <ul>
+        {words.map((word) => {
+          return (
+            <li key={word.id}>
+              {word.spanishWord}: {word.englishWord}
+            </li>
+          );
+        })}
+      </ul>
+
+      <NewWordForm addNewWord={addNewWord} />
+    </div>
+  );
 }
 
 export default AddWord;
