@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Flashcard from "./Flashcard";
 
-function WordBank({ spanishWord, englishWord }) {
+function WordBankCardList({ spanishWord, englishWord }) {
   const [word, setWord] = useState([]);
 
   const testWordBank = [
@@ -23,7 +23,7 @@ function WordBank({ spanishWord, englishWord }) {
   ];
 
   return (
-    <div>
+    <div className='card-grid'>
       {testWordBank.map((word) => (
         <div key={word.id}>
           <Flashcard
@@ -36,4 +36,4 @@ function WordBank({ spanishWord, englishWord }) {
   );
 }
 
-export default WordBank;
+export default WordBankCardList;
