@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import Flashcard from "./Flashcard";
 import MasterWordBank from './MasterWordBank';
 
-function WordBankCardList({ spanishWord, englishWord }) {
+function WordBankCardList({ bank }) {
   return (
     <div className='card-grid'>
-      {MasterWordBank.map((word) => (
+      {bank.map((word) => (
         <div key={word.id}>
           <Flashcard
             spanishWord={word.spanishWord}

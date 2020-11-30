@@ -1,33 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 import Flashcard from "./Flashcard";
 import WordBankCardList from "./WordBankCardList";
 import AddWord from "./AddWord";
-import FlashcardList from './FlashcardList'
 import MasterWordBank from './MasterWordBank'
-
+import ScoreCounter from "./ScoreCounter";
+import GenerateFlashcardForm from './GenerateFlashcardForm'
 
 
 function App() {
-  const testWordBank = [
-    {
-      id: 1,
-      spanishWord: "mano",
-      englishWord: "hand",
-    },
-    {
-      id: 2,
-      spanishWord: "pollo",
-      englishWord: "chicken",
-    },
-    {
-      id: 3,
-      spanishWord: "pastilla",
-      englishWord: "pill",
-    },
-  ];
-
-  console.log(testWordBank.spanishWord);
 
   return (
     <div className="App">
@@ -42,13 +23,16 @@ function App() {
 
         <br />
 
-        <WordBankCardList />
+        <GenerateFlashcardForm />
 
         <br />
 
-      <div className='container'>
-          <FlashcardList props={MasterWordBank} />
-      </div>
+        <WordBankCardList bank={MasterWordBank}/>
+
+        <br />
+
+        <ScoreCounter />
+
       </header>
     </div>
   );
