@@ -3,18 +3,36 @@ import MasterWordBank from "./MasterWordBank";
 import Flashcard from './Flashcard'
 import WordBankCardList from './WordBankCardList'
 
-function GenerateFlashcardForm({ generateCards }) {
-
-
-
-const handleSubmit = (e) => {
-    e.preventDefault();
+function GenerateFlashcardForm() {
+  const [flashcards, setFlashcards] = useState([])
+  
+  const generateCards = () => {
+    setFlashcards(MasterWordBank)
+    console.log(flashcards)  
   };
 
+  // useEffect(() => {
+  //   setFlashcards(MasterWordBank)
+  //   console.log(flashcards)
+  // }, [MasterWordBank])
+
   return (
-    <form onClick={handleSubmit}>
-      <input type="submit" value="Generate Flash Cards" />
-    </form>
+      <div>
+          <button onClick={generateCards}>Generate All Flashcards</button>
+      
+      <br />
+
+      <div className='card-grid'>
+      {flashcards.map((word) => (
+        <div key={word.id}>
+          <Flashcard
+            spanishWord={word.spanishWord}
+            englishWord={word.englishWord}
+          />
+        </div>
+      ))}
+    </div>
+      </div>
   );
 }
 

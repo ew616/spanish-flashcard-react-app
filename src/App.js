@@ -23,11 +23,9 @@ function App() {
 
         <br />
 
-        <GenerateFlashcardForm />
+        <GenerateFlashcardForm bank={MasterWordBank}/>
 
         <br />
-
-        <WordBankCardList bank={MasterWordBank}/>
 
         <br />
 
