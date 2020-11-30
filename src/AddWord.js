@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { v4 as uuid } from "uuid";
 import NewWordForm from "./NewWordForm";
+import MasterWordBank from './MasterWordBank';
 
 function AddWord() {
   const blankWord = {
@@ -9,18 +10,25 @@ function AddWord() {
     id: "",
   };
 
-  const [words, setWords] = useState([
-    { id: 1, spanishWord: "pie", englishWord: "foot" },
-    { id: 2, spanishWord: "pollo", englishWord: "chicken" },
-    { id: 3, spanishWord: "pastilla", englishWord: "pill" },
-  ]);
+  const [words, setWords] = useState(MasterWordBank);
 
   const addNewWord = (a, b) => {
-    setWords([...words, { spanishWord: a, englishWord: b, id: uuid() }]);
+    const newWord = {
+      spanishWord: a, 
+      englishWord: b, 
+      id: uuid()
+    }
+    setWords([...words, newWord]);
+    MasterWordBank.push(newWord);
+    console.log(MasterWordBank)
   };
 
   return (
     <div>
+      <NewWordForm addNewWord={addNewWord} />
+
+      <h3>My Word Bank</h3> 
+
       <ul>
         {words.map((word) => {
           return (
@@ -30,8 +38,6 @@ function AddWord() {
           );
         })}
       </ul>
-
-      <NewWordForm addNewWord={addNewWord} />
     </div>
   );
 }

@@ -4,6 +4,7 @@ import Flashcard from "./Flashcard";
 import WordBankCardList from "./WordBankCardList";
 import AddWord from "./AddWord";
 import FlashcardList from './FlashcardList'
+import MasterWordBank from './MasterWordBank'
 
 
 
@@ -37,25 +38,16 @@ function App() {
 
         <br />
 
+        <AddWord bank={MasterWordBank} />
+
+        <br />
+
         <WordBankCardList />
 
         <br />
 
-        <AddWord bank={testWordBank} />
-
-        <br />
-
-        <Flashcard spanishWord="vaca" englishWord="cow" />
-
-        <br />
-
-        <Flashcard
-          spanishWord={testWordBank[0].spanishWord}
-          englishWord={testWordBank[0].englishWord}
-        />
-
       <div className='container'>
-          <FlashcardList flashcards={testWordBank} />
+          <FlashcardList props={MasterWordBank} />
       </div>
       </header>
     </div>

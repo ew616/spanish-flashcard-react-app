@@ -4,7 +4,7 @@ import WordBankCardList from './WordBankCardList'
 
 //Creates a big outer div, the grid, which contains all of the individual flashcards and gives each a unique id
 
-export default function FlashcardList({ flashcards }) {
+export default function FlashcardList(props) {
     const testWordBank = [
         {
           id: 1,
@@ -26,7 +26,7 @@ export default function FlashcardList({ flashcards }) {
     
     return (
         <div className='card-grid'>
-            <Flashcard />
+            <Flashcard flashcard={props}/>
             <Flashcard />
             <Flashcard />
             <Flashcard />

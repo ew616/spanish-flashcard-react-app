@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import AddWord from "./AddWord";
-import { v4 as uuid } from "uuid";
 
 function NewWordForm({ addNewWord }) {
   const [englishWord, setEngWord] = useState("");
