@@ -65,5 +65,8 @@
 .container {
   max-width: 900px;
   margin: 1rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
 }
 
