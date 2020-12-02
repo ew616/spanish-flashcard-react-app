@@ -20,7 +20,6 @@ function AddWord() {
     }
     setWords([...words, newWord]);
     MasterWordBank.push(newWord);
-    console.log(MasterWordBank)
   };
 
   return (

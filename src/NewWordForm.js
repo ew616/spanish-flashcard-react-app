@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 function NewWordForm({ addNewWord }) {
   const [englishWord, setEngWord] = useState("");
@@ -6,10 +6,10 @@ function NewWordForm({ addNewWord }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(englishWord);
-    console.log(spanishWord);
     addNewWord(spanishWord, englishWord);
+    e.target.reset();
   };
+
 
   return (
     <form onSubmit={handleSubmit}>

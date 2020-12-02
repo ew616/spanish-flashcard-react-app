@@ -6,8 +6,8 @@ import _ from "lodash";
 function GenerateRandomCard() {
   const [randomCard, setRandomCard] = useState([]);
 
-    const generateRandomCard = () => {
-        const shuffled = _.shuffle(MasterWordBank);
+    const generateRandomCard = async () => {
+        const shuffled = await _.shuffle(MasterWordBank);
 
         setRandomCard(shuffled[0]);
   };
