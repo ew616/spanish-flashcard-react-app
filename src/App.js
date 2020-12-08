@@ -8,6 +8,7 @@ import AddingToBankRoute from './AddingToBankRoute';
 import NavbarPage from "./NavbarPage";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'mdbreact/dist/css/mdb.css';
+import { MDBContainer } from "mdbreact";
 
 
 function App() {
@@ -16,15 +17,10 @@ function App() {
     <div className="App">
         <NavbarPage />
 
-        <Router>
-          <Nav />
-
           <Switch>
             <Route  path='/TestYourself' component={TestYourself}/>
             <Route  path='/AddingToBankRoute' component={AddingToBankRoute}/>
           </Switch>
-        
-        </Router>
     </div>
   );
 }
