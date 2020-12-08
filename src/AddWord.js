@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { v4 as uuid } from "uuid";
 import NewWordForm from "./NewWordForm";
 import MasterWordBank from './MasterWordBank';
+import _ from 'lodash';
 
 function AddWord() {
   const blankWord = {
@@ -28,11 +29,11 @@ function AddWord() {
 
       <h3>My Word Bank</h3> 
 
-      <ul>
+      <ul className='wordBankList'>
         {words.map((word) => {
           return (
             <li key={word.id}>
-              {word.spanishWord}: {word.englishWord}
+              {_.startCase(_.camelCase(word.spanishWord))}: {_.startCase(_.camelCase(word.englishWord))}
             </li>
           );
         })}
