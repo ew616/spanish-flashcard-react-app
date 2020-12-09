@@ -23,13 +23,16 @@ function toggleCollapse() {
         <MDBNavbarToggler onClick={toggleCollapse} />
         <MDBCollapse id="navbarCollapse3" isOpen={isOpen} navbar>
           <MDBNavbarNav left>
-            <MDBNavItem>
-              <MDBNavLink to="/TestYourself" href='/TestYourself'>Test Yourself</MDBNavLink>
+            <MDBNavItem className='navbar-item'>
+              <MDBNavLink to="/TestYourself" href='/TestYourself'>Vocab Test</MDBNavLink>
             </MDBNavItem>
-            <MDBNavItem>
-              <MDBNavLink to="/AddingToBankRoute">Add to your Bank</MDBNavLink>
+            <MDBNavItem className='navbar-item'>
+              <MDBNavLink to="/AddingToBankRoute">Word Bank</MDBNavLink>
             </MDBNavItem>
-            <MDBNavItem>
+            <MDBNavItem className='navbar-item'>
+              <MDBNavLink to="/ArticleFetching">Practice Reading</MDBNavLink>
+            </MDBNavItem>
+            {/* <MDBNavItem>
               <MDBDropdown>
                 <MDBDropdownToggle nav caret>
                   <div className="d-none d-md-inline">Dropdown</div>
@@ -41,7 +44,7 @@ function toggleCollapse() {
                   <MDBDropdownItem href="#!">Something else here</MDBDropdownItem>
                 </MDBDropdownMenu>
               </MDBDropdown>
-            </MDBNavItem>
+            </MDBNavItem> */}
           </MDBNavbarNav>
           <MDBNavbarNav right>
             <MDBNavItem>

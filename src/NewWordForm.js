@@ -12,7 +12,7 @@ function NewWordForm({ addNewWord }) {
 
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className='centered'>
       <input
         type="text"
         name="spanishWord"
@@ -28,7 +28,7 @@ function NewWordForm({ addNewWord }) {
         onChange={(e) => setEngWord(e.target.value)}
       />
 
-      <input type="submit" value="Add New Word" />
+      <input type="submit" value="Add Word" />
     </form>
   );
 }

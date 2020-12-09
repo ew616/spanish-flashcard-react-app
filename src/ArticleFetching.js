@@ -25,14 +25,20 @@ function ArticleFetching() {
 
   return (
     <div>
+        <h3 className='article-list-title'>In Today's Random News</h3>
+
+        <ol>
       {articleData.map((article) => {
         return (
-          <div key={article._id}>
-            <h4>{article.title}</h4>
-            <a href={article.link}>{article.link}</a>
+          <div key={article._id} className='article-list-item'>
+                <li>
+                    <h6><strong>{article.title}</strong></h6>
+                    <a href={article.link}>{article.link}</a>
+                </li>
           </div>
         );
       })}
+      </ol>
     </div>
   );
 }

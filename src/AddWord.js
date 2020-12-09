@@ -27,9 +27,10 @@ function AddWord() {
     <div>
       <NewWordForm addNewWord={addNewWord} />
 
-      <h3>My Word Bank</h3> 
+      <h3 className='word-bank-title'>My Word Bank</h3> 
 
-      <ul className='wordBankList'>
+      <div className='word-bank-container'>
+      <ul className='word-bank-list'>
         {words.map((word) => {
           return (
             <li key={word.id}>
@@ -38,6 +39,7 @@ function AddWord() {
           );
         })}
       </ul>
+      </div>
     </div>
   );
 }

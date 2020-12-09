@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import GenerateRandomCard from './GenerateRandomCard'
-import _, { indexOf } from "lodash";
+import _ from "lodash";
 import Flashcard from './Flashcard';
-import MasterWordBank from './MasterWordBank'
+import MasterWordBank from './MasterWordBank';
+import { MDBBtn } from "mdbreact";
 
 
 function ScoreCounter() {
@@ -37,11 +37,14 @@ function ScoreCounter() {
         <Flashcard spanishWord={card.spanishWord} englishWord={card.englishWord}/>
       </div>
 
-      <h4>
+      <h4 className='test-yourself-items'>
         Score: {isNaN(percentage) ? 0 : percentage}% or {count}/{totalClicks}
       </h4>
-      <button onClick={increment}>Right?</button>
-      <button onClick={decrement}>Wrong?</button>
+
+      <div className='test-yourself-items'>
+        <MDBBtn rounded color="info" size='normal' onClick={increment}>Right?</MDBBtn>
+        <MDBBtn rounded color="danger" size='normal' onClick={decrement}>Wrong?</MDBBtn>
+      </div>
     </div>
   );
 }

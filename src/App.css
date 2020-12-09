@@ -1,17 +1,7 @@
 body {
   text-align: center;
-  background-color: #282c34;
+  background-color:  rgb(230, 189, 136);;
   color: white;
-}
-
-.App-header {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: rgb(116, 105, 105);
 }
 
 nav {
@@ -24,12 +14,11 @@ nav {
 
 }
 
-.nav-links {
-  width: 100%;
+.navbar-item {
   display: flex;
+  margin-right: 1em;
+  margin-left: 0.5em;
   justify-content: space-around;
-  align-items: center;
-  list-style: none;
 }
 
 .card {
@@ -81,6 +70,18 @@ nav {
   gap: 1rem;
   margin-top: 2em;
   gap: 1rem;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.card-grid-container {
+  display: flex;
+  justify-content: center; 
+  flex-direction: row;
+}
+
+.add-word-form-title {
+  margin: 1em;
 }
 
 .container {
@@ -89,10 +90,47 @@ nav {
   align-items: flex-end;
 }
 
+.centered {
+  display: flex;
+  justify-content: center;
+}
+
 .generateRandomCardButton {
   margin-bottom: 2em;
 }
 
-.wordBankList {
+.word-bank-list {
   list-style: none;
+  margin-left: 17%;
+}
+
+.word-bank-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.word-bank-title {
+  list-style: none;
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 1.5em;
+  margin-left: 20%;
+}
+
+.article-list-item {
+  padding: 1em;
+}
+
+.article-list-title {
+  display: flex;
+  justify-content: center;
+  margin: 1em;
+  font-weight: bold;
+}
+
+.test-yourself-items {
+  display: flex;
+  justify-content: center;
+  margin: 1em;
 }

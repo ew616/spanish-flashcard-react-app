@@ -4,7 +4,7 @@ import ScoreCounter from "./ScoreCounter";
 function TestYourself() {
     return (
         <div>
-            <h1>TEST YOSELF</h1>
+            <h1 className='test-yourself-items'>Vocab Test</h1>
 
             <ScoreCounter />
         </div>
