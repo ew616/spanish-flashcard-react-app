@@ -4,8 +4,12 @@ import Flashcard from './Flashcard';
 import MasterWordBank from './MasterWordBank';
 import { MDBBtn } from "mdbreact";
 
+// Displays a random card and counts scores with clicks/percentages 
 
 function ScoreCounter() {
+
+  // Sets piece of state for the click count and percentage, basically just returning two click counters and the division of those two values
+
   const [count, setCount] = useState(0);
   const [totalClicks, setClicks] = useState(0);
   const [percentage, setPercentage] = useState(0);
@@ -16,12 +20,6 @@ function ScoreCounter() {
     setPercentage(newPercentage);
   }, [count, totalClicks]);
 
-  useEffect(() => {
-    const shuffled = _.shuffle(MasterWordBank);
-
-    setCard(shuffled[0]);    
-  }, [totalClicks])
-
   function increment() {
     setClicks(totalClicks + 1);
     setCount(count + 1);
@@ -30,6 +28,14 @@ function ScoreCounter() {
   function decrement() {
     setClicks(totalClicks + 1);
   }
+
+  // Shuffles all the cards using lodash and displays the first Flashcard in shuffled array
+
+  useEffect(() => {
+    const shuffled = _.shuffle(MasterWordBank);
+
+    setCard(shuffled[0]);    
+  }, [totalClicks])
 
   return (
     <div>
