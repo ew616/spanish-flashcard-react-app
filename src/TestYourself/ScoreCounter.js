@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import _ from "lodash";
 import Flashcard from './Flashcard';
-import MasterWordBank from './MasterWordBank';
+import MasterWordBank from '../MasterWordBank';
 import { MDBBtn } from "mdbreact";
 
 // Displays a random card and counts scores with clicks/percentages 
