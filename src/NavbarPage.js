@@ -32,6 +32,9 @@ function toggleCollapse() {
             <MDBNavItem className='navbar-item'>
               <MDBNavLink to="/ArticleFetching">Practice Reading</MDBNavLink>
             </MDBNavItem>
+            <MDBNavItem className='navbar-item'>
+              <MDBNavLink to="/MerriamApiCall">Translate</MDBNavLink>
+            </MDBNavItem>
             {/* <MDBNavItem>
               <MDBDropdown>
                 <MDBDropdownToggle nav caret>

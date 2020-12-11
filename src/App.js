@@ -7,8 +7,8 @@ import AddingToBankRoute from './AddingToBankRoute';
 import NavbarPage from "./NavbarPage";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'mdbreact/dist/css/mdb.css';
-import { MDBContainer } from "mdbreact";
 import ArticleFetching from "./ArticleFetching";
+import MerriamApiCall from "./MerriamApiCall";
 
 
 function App() {
@@ -18,10 +18,13 @@ function App() {
         <NavbarPage />
 
           <Switch>
-            <Route  path='/TestYourself' component={TestYourself}/>
-            <Route  path='/AddingToBankRoute' component={AddingToBankRoute}/>
-            <Route  path='/ArticleFetching' component={ArticleFetching}/>
+            <Route path='/TestYourself' component={TestYourself}/>
+            <Route exact path='/' component={AddingToBankRoute}/>
+            <Route path='/AddingToBankRoute' component={AddingToBankRoute}/>
+            <Route path='/ArticleFetching' component={ArticleFetching}/>
+            <Route path='/MerriamApiCall' component={MerriamApiCall}/>
           </Switch>
+        
     </div>
   );
 }

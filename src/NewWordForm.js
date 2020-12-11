@@ -10,7 +10,6 @@ function NewWordForm({ addNewWord }) {
     e.target.reset();
   };
 
-
   return (
     <form onSubmit={handleSubmit} className='centered'>
       <input
