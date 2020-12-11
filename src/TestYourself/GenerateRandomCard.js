@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import MasterWordBank from "./MasterWordBank";
-import Flashcard from "./Flashcard";
+import MasterWordBank from "../MasterWordBank";
+import Flashcard from "../Flashcard";
 import _, { indexOf } from "lodash";
 
 function GenerateRandomCard() {

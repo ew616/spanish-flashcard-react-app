@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { v4 as uuid } from "uuid";
 import NewWordForm from "./NewWordForm";
-import MasterWordBank from './MasterWordBank';
+import MasterWordBank from '../MasterWordBank';
 import _ from 'lodash';
 
 function AddWord() {

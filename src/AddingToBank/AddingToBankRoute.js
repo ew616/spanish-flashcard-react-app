@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import AddWord from "./AddWord";
-import MasterWordBank from "./MasterWordBank";
+import MasterWordBank from "../MasterWordBank";
 import GenerateAllCards from "./GenerateAllCards";
 
 

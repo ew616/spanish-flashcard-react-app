@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import MasterWordBank from './MasterWordBank';
+import MasterWordBank from '../MasterWordBank';
 import { v4 as uuid } from "uuid";
 
 function MerriamApiCall() {
