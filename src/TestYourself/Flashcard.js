@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 
-// Creates Flashcard module/animation logic, just needs to be passed the two words, probably better design to have them come off one props object, to be refactored
+// Creates Flashcard module/animation logic, just needs to be passed the two words, probably better design to have them come off one props object, to be refactored?
 
 export default function Flashcard({ spanishWord, englishWord }) {
   const [flip, setFlip] = useState(false);

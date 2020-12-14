@@ -1,6 +1,6 @@
 body {
   text-align: center;
-  background-color:  rgb(230, 189, 136);;
+  background-color: rgb(230, 189, 136);
   color: white;
 }
 
@@ -11,7 +11,6 @@ nav {
   align-items: flex-end;
   background-color: rgb(79, 177, 209);
   height: 100%;
-
 }
 
 .navbar-item {
@@ -26,10 +25,11 @@ nav {
   justify-content: center;
   align-items: center;
   position: relative;
-  border-radius: .25 rem;
+  border-radius: 0.25 rem;
   box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.3);
   background-color: white;
-  transform: perspective(1000px) rotateY(var(--rotate-y, 0)) translateY(var(--translate-y, 0));
+  transform: perspective(1000px) rotateY(var(--rotate-y, 0))
+    translateY(var(--translate-y, 0));
   transition: 150ms;
   transform-style: preserve-3d;
   cursor: pointer;
@@ -39,9 +39,8 @@ nav {
   color: black;
 }
 
-
 .card:hover {
-  box-shadow: 0 0 5px 2px rgba(0, 0, 0, .5);
+  box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.5);
   --translate-y: -2px;
 }
 
@@ -76,7 +75,7 @@ nav {
 
 .card-grid-container {
   display: flex;
-  justify-content: center; 
+  justify-content: center;
   flex-direction: row;
 }
 

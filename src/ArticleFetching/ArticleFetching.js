@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 
+//Pulls 5 random Spanish articles from the newscatcher API and updates a dynamic ordered list with their titles and then links
 function ArticleFetching() {
   const [articleData, setArticleData] = useState([]);
 
@@ -25,19 +26,21 @@ function ArticleFetching() {
 
   return (
     <div>
-        <h3 className='article-list-title'>In Today's Random News</h3>
+      <h3 className="article-list-title">In Today's Random News</h3>
 
-        <ol>
-      {articleData.map((article) => {
-        return (
-          <div key={article._id} className='article-list-item'>
-                <li>
-                    <h6><strong>{article.title}</strong></h6>
-                    <a href={article.link}>{article.link}</a>
-                </li>
-          </div>
-        );
-      })}
+      <ol>
+        {articleData.map((article) => {
+          return (
+            <div key={article._id} className="article-list-item">
+              <li>
+                <h6>
+                  <strong>{article.title}</strong>
+                </h6>
+                <a href={article.link}>{article.link}</a>
+              </li>
+            </div>
+          );
+        })}
       </ol>
     </div>
   );

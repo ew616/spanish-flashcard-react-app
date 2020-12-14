@@ -3,23 +3,33 @@ import MasterWordBank from "../MasterWordBank";
 import Flashcard from "../Flashcard";
 import _, { indexOf } from "lodash";
 
+//Uses lodash to shuffle the current Word Bank array, then displays the first item, each click will generate a new order so you can get same words more than once
+//Then pushes the random first item into a flashcard and renders
 function GenerateRandomCard() {
   const [randomCard, setRandomCard] = useState([]);
 
   const generateRandomCard = async () => {
-      const shuffled = await _.shuffle(MasterWordBank);
+    const shuffled = await _.shuffle(MasterWordBank);
 
-      setRandomCard(shuffled[0]);
+    setRandomCard(shuffled[0]);
   };
-  
-  const final = <Flashcard spanishWord={randomCard.spanishWord} englishWord={randomCard.englishWord}/>
+
+  const final = (
+    <Flashcard
+      spanishWord={randomCard.spanishWord}
+      englishWord={randomCard.englishWord}
+    />
+  );
 
   return (
     <div>
+      <button className="generateRandomCardButton" onClick={generateRandomCard}>
+        Generate Random Flashcard
+      </button>
 
-      <button className='generateRandomCardButton' onClick={generateRandomCard}>Generate Random Flashcard</button>
-
-      <div key={randomCard.id} className='container'>{final}</div>
+      <div key={randomCard.id} className="container">
+        {final}
+      </div>
     </div>
   );
 }

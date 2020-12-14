@@ -1,15 +1,14 @@
 import React, { useState } from "react";
 import "./App.css";
-import _ from 'lodash';
-import TestYourself from './TestYourself/TestYourself';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import AddingToBankRoute from './AddingToBank/AddingToBankRoute';
+import _ from "lodash";
+import TestYourself from "./TestYourself/TestYourself";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import AddingToBankRoute from "./AddingToBank/AddingToBankRoute";
 import NavbarPage from "./NavbarPage";
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'mdbreact/dist/css/mdb.css';
+import "bootstrap/dist/css/bootstrap.min.css";
+import "mdbreact/dist/css/mdb.css";
 import ArticleFetching from "./ArticleFetching/ArticleFetching";
 import MerriamApiCall from "./Translate/MerriamApiCall";
-
 
 //Current Issues
 //More organized, add more comments
@@ -18,19 +17,17 @@ import MerriamApiCall from "./Translate/MerriamApiCall";
 //News Links should open in new tab
 
 function App() {
-
   return (
     <div className="App">
-        <NavbarPage />
+      <NavbarPage />
 
-          <Switch>
-            <Route path='/TestYourself' component={TestYourself}/>
-            <Route exact path='/' component={AddingToBankRoute}/>
-            <Route path='/AddingToBankRoute' component={AddingToBankRoute}/>
-            <Route path='/ArticleFetching' component={ArticleFetching}/>
-            <Route path='/MerriamApiCall' component={MerriamApiCall}/>
-          </Switch>
-        
+      <Switch>
+        <Route path="/TestYourself" component={TestYourself} />
+        <Route exact path="/" component={AddingToBankRoute} />
+        <Route path="/AddingToBankRoute" component={AddingToBankRoute} />
+        <Route path="/ArticleFetching" component={ArticleFetching} />
+        <Route path="/MerriamApiCall" component={MerriamApiCall} />
+      </Switch>
     </div>
   );
 }

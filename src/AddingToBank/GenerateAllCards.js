@@ -3,6 +3,7 @@ import MasterWordBank from "../MasterWordBank";
 import Flashcard from "../TestYourself/Flashcard";
 import { MDBBtn } from "mdbreact";
 
+//Makes a button and then maps through current Word Bank, generates a flashcard for each object in bank
 function GenerateAllCards() {
   const [flashcards, setFlashcards] = useState([]);
 

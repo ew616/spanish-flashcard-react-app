@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
 import _ from "lodash";
-import Flashcard from './Flashcard';
-import MasterWordBank from '../MasterWordBank';
+import Flashcard from "./Flashcard";
+import MasterWordBank from "../MasterWordBank";
 import { MDBBtn } from "mdbreact";
 
-// Displays a random card and counts scores with clicks/percentages 
+// Displays a random card and counts scores with clicks/percentages
 
 function ScoreCounter() {
-
   // Sets piece of state for the click count and percentage, basically just returning two click counters and the division of those two values
 
   const [count, setCount] = useState(0);
@@ -34,22 +33,29 @@ function ScoreCounter() {
   useEffect(() => {
     const shuffled = _.shuffle(MasterWordBank);
 
-    setCard(shuffled[0]);    
-  }, [totalClicks])
+    setCard(shuffled[0]);
+  }, [totalClicks]);
 
   return (
     <div>
-      <div className='container'>
-        <Flashcard spanishWord={card.spanishWord} englishWord={card.englishWord}/>
+      <div className="container">
+        <Flashcard
+          spanishWord={card.spanishWord}
+          englishWord={card.englishWord}
+        />
       </div>
 
-      <h4 className='test-yourself-items'>
+      <h4 className="test-yourself-items">
         Score: {isNaN(percentage) ? 0 : percentage}% or {count}/{totalClicks}
       </h4>
 
-      <div className='test-yourself-items'>
-        <MDBBtn rounded color="info" size='normal' onClick={increment}>Right?</MDBBtn>
-        <MDBBtn rounded color="danger" size='normal' onClick={decrement}>Wrong?</MDBBtn>
+      <div className="test-yourself-items">
+        <MDBBtn rounded color="info" size="normal" onClick={increment}>
+          Right?
+        </MDBBtn>
+        <MDBBtn rounded color="danger" size="normal" onClick={decrement}>
+          Wrong?
+        </MDBBtn>
       </div>
     </div>
   );

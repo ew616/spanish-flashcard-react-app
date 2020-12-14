@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 
+//Makes a form to collect new words for bank, sets state based on what user types and resets after completion
 function NewWordForm({ addNewWord }) {
   const [englishWord, setEngWord] = useState("");
   const [spanishWord, setSpanWord] = useState("");
