@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
-import MasterWordBank from "../MasterWordBank";
 import { v4 as uuid } from "uuid";
+import addToStorage from '../AddingToBank/addToStorage'
 
 //Calls Merriam Span-Eng Dict Api and returns a list of translations, works for both langs
 function MerriamApiCall() {
+  const currentBank = JSON.parse(localStorage.getItem("wordBank") || "[]");
+
   const [dictData, setDictData] = useState([]);
   const [inputData, setInputData] = useState("");
-  const [words, setWords] = useState(MasterWordBank);
 
   // Calls definition from Dict API and sets the data to correct piece of state
   // Interpolates the users input to the API call
@@ -33,7 +34,7 @@ function MerriamApiCall() {
     e.target.reset();
   }
 
-  //Takes the first definition from API and saves it to new obj, pushes that obj to MasterWordBank
+  //Takes the first definition from API and saves it to new obj, pushes that obj to localStorage Obj
 
   const addTranslatedWord = (e) => {
     e.preventDefault();
@@ -43,8 +44,8 @@ function MerriamApiCall() {
       englishWord: dictData[0].shortdef[0],
       id: uuid(),
     };
-    setWords([...words, newWord]);
-    MasterWordBank.push(newWord);
+
+    addToStorage(newWord)
   };
 
   //Loops through definitions and returns them in an ol

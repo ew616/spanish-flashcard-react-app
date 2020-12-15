@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import _ from "lodash";
 import Flashcard from "./Flashcard";
-import MasterWordBank from "../MasterWordBank";
 import { MDBBtn } from "mdbreact";
 
 // Displays a random card and counts scores with clicks/percentages
 
 function ScoreCounter() {
+  const currentBank = JSON.parse(localStorage.getItem("wordBank") || "[]");
   // Sets piece of state for the click count and percentage, basically just returning two click counters and the division of those two values
 
   const [count, setCount] = useState(0);
@@ -31,7 +31,7 @@ function ScoreCounter() {
   // Shuffles all the cards using lodash and displays the first Flashcard in shuffled array
 
   useEffect(() => {
-    const shuffled = _.shuffle(MasterWordBank);
+    const shuffled = _.shuffle(currentBank);
 
     setCard(shuffled[0]);
   }, [totalClicks]);

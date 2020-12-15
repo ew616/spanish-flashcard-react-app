@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import MasterWordBank from "../MasterWordBank";
 import Flashcard from "../TestYourself/Flashcard";
 import { MDBBtn } from "mdbreact";
 
@@ -8,7 +7,8 @@ function GenerateAllCards() {
   const [flashcards, setFlashcards] = useState([]);
 
   const generateCards = () => {
-    setFlashcards(MasterWordBank);
+    const currentBank = JSON.parse(localStorage.getItem("wordBank") || "[]");
+    setFlashcards(currentBank)
     console.log(flashcards);
   };
 

@@ -1,22 +1,23 @@
 import React, { useState } from "react";
 import { v4 as uuid } from "uuid";
 import NewWordForm from "./NewWordForm";
-import MasterWordBank from "../MasterWordBank";
 import _ from "lodash";
+import addToStorage from './addToStorage'
 
 //Makes a new object in bank for users input with word info and uuid and pushes the new object to our master
 //When word is added it will render it in a dynamic list
 function AddWord() {
-  const [words, setWords] = useState(MasterWordBank);
+  const currentBank = JSON.parse(localStorage.getItem("wordBank") || "[]");
+  const [words, setWords] = useState(currentBank);
 
   const addNewWord = (a, b) => {
     const newWord = {
-      spanishWord: a,
-      englishWord: b,
+      spanishWord: _.startCase(_.camelCase(a)),
+      englishWord: _.startCase(_.camelCase(b)),
       id: uuid(),
     };
     setWords([...words, newWord]);
-    MasterWordBank.push(newWord);
+    addToStorage(newWord);
   };
 
   return (
@@ -27,10 +28,10 @@ function AddWord() {
 
       <div className="word-bank-container">
         <ul className="word-bank-list">
-          {words.map((word) => {
+          {currentBank.map((word) => {
             return (
               <li key={word.id}>
-                {_.startCase(_.camelCase(word.spanishWord))}:{" "}
+                {_.startCase(_.camelCase(word.spanishWord))} -- {" "}
                 {_.startCase(_.camelCase(word.englishWord))}
               </li>
             );
