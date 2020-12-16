@@ -39,17 +39,19 @@ function MerriamApiCall() {
   const addTranslatedWord = (e) => {
     e.preventDefault();
 
+    //TO FIX: words come in criss-crossed if translated from Eng-Span. Span-Eng is default here.
+    //Would be ugly but could have 2 input fields with diff handleSubmit funcs 
     const newWord = {
       spanishWord: inputData,
       englishWord: dictData[0].shortdef[0],
       id: uuid(),
     };
 
-    addToStorage(newWord)
+    addToStorage(newWord);
   };
 
   //Loops through definitions and returns them in an ol
-  //Button to add to MasterWordBank
+  //Button to add to localStorage
 
   return (
     <div>
