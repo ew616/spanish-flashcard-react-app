@@ -5,10 +5,9 @@ import { MDBBtn } from "mdbreact";
 
 // Displays a random card and counts scores with clicks/percentages
 
-function ScoreCounter() {
-  const currentBank = JSON.parse(localStorage.getItem("wordBank") || "[]");
+function ScoreCounter({ currentBank }) {
   // Sets piece of state for the click count and percentage, basically just returning two click counters and the division of those two values
-
+  // Set piece of state for the random card to display
   const [count, setCount] = useState(0);
   const [totalClicks, setClicks] = useState(0);
   const [percentage, setPercentage] = useState(0);
@@ -28,8 +27,8 @@ function ScoreCounter() {
     setClicks(totalClicks + 1);
   }
 
-  // Shuffles all the cards using lodash and displays the first Flashcard in shuffled array
-
+  //Shuffles all the cards using lodash and displays the first Flashcard in shuffled array
+  //Reshuffles and displays the new card on every click
   useEffect(() => {
     const shuffled = _.shuffle(currentBank);
 

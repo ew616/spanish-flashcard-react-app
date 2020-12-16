@@ -94,10 +94,6 @@ nav {
   justify-content: center;
 }
 
-.generateRandomCardButton {
-  margin-bottom: 2em;
-}
-
 .word-bank-list {
   list-style: none;
   margin-left: 17%;

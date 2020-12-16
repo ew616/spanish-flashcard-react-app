@@ -17,8 +17,6 @@ import MerriamApiCall from "./Translate/MerriamApiCall";
 //News Links should open in new tab
 
 function App() {
-  const currentBank = [JSON.parse(localStorage.getItem("wordBank") || "[]")];
-
   return (
     <div className="App">
       
@@ -26,7 +24,7 @@ function App() {
         <NavbarPage />
 
         <Switch>
-          <Route path="/TestYourself" component={TestYourself} currentBank={currentBank}/>
+          <Route path="/TestYourself" component={TestYourself} />
           <Route exact path="/"  component={AddingToBankRoute}/>
           <Route path="/AddingToBankRoute" component={AddingToBankRoute} />
           <Route path="/ArticleFetching" component={ArticleFetching} />
