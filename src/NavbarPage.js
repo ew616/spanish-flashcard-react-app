@@ -39,13 +39,16 @@ function NavbarPage() {
             </MDBNavLink>
           </MDBNavItem>
           <MDBNavItem className="navbar-item">
-            <MDBNavLink to="/AddingToBankRoute">Word Bank</MDBNavLink>
+            <MDBNavLink to="/AddingToBankRoute">Add Words</MDBNavLink>
           </MDBNavItem>
           <MDBNavItem className="navbar-item">
             <MDBNavLink to="/ArticleFetching">Practice Reading</MDBNavLink>
           </MDBNavItem>
           <MDBNavItem className="navbar-item">
             <MDBNavLink to="/MerriamApiCall">Translate</MDBNavLink>
+          </MDBNavItem>
+          <MDBNavItem className="navbar-item">
+            <MDBNavLink to="/">Word Bank</MDBNavLink>
           </MDBNavItem>
           {/* <MDBNavItem>
               <MDBDropdown>

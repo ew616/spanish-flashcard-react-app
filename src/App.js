@@ -17,19 +17,22 @@ import MerriamApiCall from "./Translate/MerriamApiCall";
 //News Links should open in new tab
 
 function App() {
-  const currentBank = JSON.parse(localStorage.getItem("wordBank") || "[]");
+  const currentBank = [JSON.parse(localStorage.getItem("wordBank") || "[]")];
 
   return (
     <div className="App">
-      <NavbarPage />
+      
+      <Router>
+        <NavbarPage />
 
-      <Switch>
-        <Route path="/TestYourself" component={TestYourself} />
-        <Route exact path="/" component={AddingToBankRoute} />
-        <Route path="/AddingToBankRoute" component={AddingToBankRoute} />
-        <Route path="/ArticleFetching" component={ArticleFetching} />
-        <Route path="/MerriamApiCall" component={MerriamApiCall} />
-      </Switch>
+        <Switch>
+          <Route path="/TestYourself" component={TestYourself} currentBank={currentBank}/>
+          <Route exact path="/"  component={AddingToBankRoute}/>
+          <Route path="/AddingToBankRoute" component={AddingToBankRoute} />
+          <Route path="/ArticleFetching" component={ArticleFetching} />
+          <Route path="/MerriamApiCall" component={MerriamApiCall} />
+        </Switch>
+      </Router>
 
     </div>
   );

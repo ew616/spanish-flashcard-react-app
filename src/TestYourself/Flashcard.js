@@ -8,6 +8,7 @@ export default function Flashcard({ spanishWord, englishWord }) {
   const frontEl = useRef();
   const backEl = useRef();
 
+  //Function that dynamically adjusts height of card
   function setMaxHeight() {
     const frontHeight = frontEl.current.getBoundingClientRect().height;
     const backHeight = backEl.current.getBoundingClientRect().height;
@@ -23,8 +24,7 @@ export default function Flashcard({ spanishWord, englishWord }) {
 
   return (
     <div
-      //if flip is true, set the className to flip otherwise, set it to nothing
-      //Then, on click, flip will toggle back between true and false, triggering the css animation
+      //Clicking on any card will toggle the className flip between true and false, triggering the css animation
       className={`card ${flip ? "flip" : ""}`}
       style={{ height: height }}
       onClick={() => setFlip(!flip)}

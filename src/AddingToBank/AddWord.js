@@ -8,6 +8,7 @@ import addToStorage from './addToStorage'
 //When word is added it will render it in a dynamic list
 function AddWord() {
   const currentBank = JSON.parse(localStorage.getItem("wordBank") || "[]");
+
   const [words, setWords] = useState(currentBank);
 
   const addNewWord = (a, b) => {
@@ -28,10 +29,10 @@ function AddWord() {
 
       <div className="word-bank-container">
         <ul className="word-bank-list">
-          {currentBank.map((word) => {
+          {words.map((word) => {
             return (
               <li key={word.id}>
-                {_.startCase(_.camelCase(word.spanishWord))} -- {" "}
+                {_.startCase(_.camelCase(word.spanishWord))} --- {" "}
                 {_.startCase(_.camelCase(word.englishWord))}
               </li>
             );
