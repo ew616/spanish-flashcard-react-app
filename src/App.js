@@ -9,6 +9,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "mdbreact/dist/css/mdb.css";
 import ArticleFetching from "./ArticleFetching/ArticleFetching";
 import MerriamApiCall from "./Translate/MerriamApiCall";
+import WordBankTable from './WordBankTable/WordBankTable'
 
 //Current Issues
 //More organized, add more comments
@@ -19,7 +20,6 @@ import MerriamApiCall from "./Translate/MerriamApiCall";
 function App() {
   return (
     <div className="App">
-      
       <Router>
         <NavbarPage />
 
@@ -29,6 +29,7 @@ function App() {
           <Route path="/AddingToBankRoute" component={AddingToBankRoute} />
           <Route path="/ArticleFetching" component={ArticleFetching} />
           <Route path="/MerriamApiCall" component={MerriamApiCall} />
+          <Route path='/WordBankTable' component={WordBankTable} />
         </Switch>
       </Router>
 

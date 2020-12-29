@@ -48,7 +48,7 @@ function NavbarPage() {
             <MDBNavLink to="/MerriamApiCall">Translate</MDBNavLink>
           </MDBNavItem>
           <MDBNavItem className="navbar-item">
-            <MDBNavLink to="/">Word Bank</MDBNavLink>
+            <MDBNavLink to="/WordBankTable">Word Bank</MDBNavLink>
           </MDBNavItem>
           {/* <MDBNavItem>
               <MDBDropdown>
