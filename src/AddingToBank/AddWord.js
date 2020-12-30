@@ -1,44 +1,37 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { v4 as uuid } from "uuid";
 import NewWordForm from "./NewWordForm";
 import _ from "lodash";
-import addToStorage from './addToStorage'
+// import addToStorage from './addToStorage'
 
 //Makes a new object in bank for users input with word info and uuid and pushes the new object to our master
 //When word is added it will render it in a dynamic list
-function AddWord({ currentBank }) {
+function AddWord() {
+  const currentBank = JSON.parse(localStorage.getItem('wordBank') || '[]')
+
   const [words, setWords] = useState(currentBank);
 
   const addNewWord = (a, b) => {
-    const newWord = {
-      spanishWord: _.startCase(_.camelCase(a)),
-      englishWord: _.startCase(_.camelCase(b)),
+    let newWord = {
+      spanishWord: _.startCase(a),
+      englishWord: _.startCase(b),
       id: uuid(),
+      count: words.length + 1,
     };
+
     setWords([...words, newWord]);
-    addToStorage(newWord);
   };
 
+  useEffect(() => {
+    let newBank = [...words]
+    localStorage.setItem('wordBank', JSON.stringify(newBank));
+  }, [words]);
 
-  //Need to attach a piece of state to the table for this and for update
-  function deleteFromStorage(word) {
-    const wordToDelete = currentBank.find(t => t.id === word.id);
-    const filteredData = currentBank.filter((w) => w !== wordToDelete)
-
-    // Saving
-    localStorage.setItem("wordBank", JSON.stringify(filteredData));
-}
-
-// function updateStorage(word) {
-//   const wordToUpdate = currentBank.find(t => t.id === word.id);
-//   wordToUpdate.spanishWord = word
-
-//   task.spanishWord = data.title;
-//   task.englishWord = data.description;
-
-//   // Saving
-//   localStorage.setItem("wordBank", JSON.stringify(filteredData));
-// }
+    function addToStorage(newWord) { 
+      let newBank = [...words, newWord];
+      console.log(newBank);
+      localStorage.setItem('wordBank', JSON.stringify(newBank));
+  };
 
   return (
     <div>
@@ -50,13 +43,13 @@ function AddWord({ currentBank }) {
         <ul className="word-bank-list">
           {words.map((word) => {
             return (
-            <div>
+            <div key={word.id}>
               <li key={word.id}>
                 {_.startCase(_.camelCase(word.spanishWord))}: {" "}
                 {_.startCase(_.camelCase(word.englishWord))}
               </li>
 
-              <button onClick={deleteFromStorage(word)}>Delete</button>
+              {/* <button onClick={deleteFromStorage(word)}>Delete</button> */}
             </div>
             );
           })}
