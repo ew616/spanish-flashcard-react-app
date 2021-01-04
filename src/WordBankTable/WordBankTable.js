@@ -1,12 +1,16 @@
 import React, { useState } from "react";
 import BootstrapTable from "react-bootstrap-table-next";
 import paginationFactory from "react-bootstrap-table2-paginator";
-import cellEditFactory from 'react-bootstrap-table2-editor';
-import ToolkitProvider, { Search } from 'react-bootstrap-table2-toolkit';
-import './index.css';
+import cellEditFactory from "react-bootstrap-table2-editor";
+import ToolkitProvider, { Search } from "react-bootstrap-table2-toolkit";
+import "./index.css";
 
 const WordBankTable = () => {
   const columns = [
+    {
+      dataField: "count",
+      text: "Count",
+    },
     {
       dataField: "spanishWord",
       text: "Spanish Word",
@@ -21,47 +25,48 @@ const WordBankTable = () => {
   const { SearchBar } = Search;
 
   return (
-    <div className='table-container'>
+    <div className="table-container">
+      <ToolkitProvider
+        keyField="id"
+        data={currentBank}
+        columns={columns}
+        search
+      >
+        {(props) => (
+          <div>
+            <SearchBar {...props.searchProps} />
+            <hr />
+            <BootstrapTable
+              {...props.baseProps}
+              pagination={paginationFactory()}
+              cellEdit={cellEditFactory({
+                mode: "click",
+                onStartEdit: (row, column, rowIndex, columnIndex) => {
+                  console.log("start to edit!!!");
+                },
+                beforeSaveCell: (oldValue, newValue, row, column) => {
+                  console.log("Before Saving Cell!!");
+                },
+                afterSaveCell: (oldValue, newValue, row, column) => {
+                  // currentBank.map((item) => item !== wordToUpdate)
+                  if (column.dataField === "spanishWord") {
+                    let newBank = [...currentBank];
+                                        
+                  } else if (column.dataField === "englishWord") {
+                    console.log("capturing even more correctly");
+                  }
 
-<ToolkitProvider
-  keyField="id"
-  data={ currentBank }
-  columns={ columns }
-  search
->
-  {
-    props => (
-      <div>
-        <SearchBar { ...props.searchProps } />
-        <hr />
-        <BootstrapTable
-          { ...props.baseProps }
-          pagination={paginationFactory()}
-          cellEdit={ cellEditFactory({ 
-            mode: 'click', 
-            onStartEdit: (row, column, rowIndex, columnIndex) => { console.log('start to edit!!!'); },
-            beforeSaveCell: (oldValue, newValue, row, column) => { console.log('Before Saving Cell!!'); },
-            afterSaveCell: (oldValue, newValue, row, column) => { 
+                  // currentBank.push(wordToUpdate)
 
-              // currentBank.map((item) => item !== wordToUpdate)
-              if(column.dataField === 'spanishWord') {
-                console.log('capturing correctly')
-              } else if (column.dataField === 'englishWord') {
-                console.log('capturing even more correctly')
-              }
+                  // console.log(wordToUpdate)
 
-              // currentBank.push(wordToUpdate)
-
-              // console.log(wordToUpdate)
-
-              // localStorage.setItem('wordBank', currentBank)
-             }
-        }) }
-        />
-      </div>
-    )
-  }
-</ToolkitProvider>
+                  // localStorage.setItem('wordBank', currentBank)
+                },
+              })}
+            />
+          </div>
+        )}
+      </ToolkitProvider>
     </div>
   );
 };

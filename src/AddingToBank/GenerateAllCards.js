@@ -8,7 +8,6 @@ function GenerateAllCards({ currentBank }) {
 
   const generateCards = () => {
     setFlashcards(currentBank)
-    console.log(flashcards);
   };
 
   return (

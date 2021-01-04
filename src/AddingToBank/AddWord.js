@@ -2,13 +2,10 @@ import React, { useState, useEffect } from "react";
 import { v4 as uuid } from "uuid";
 import NewWordForm from "./NewWordForm";
 import _ from "lodash";
-// import addToStorage from './addToStorage'
 
 //Makes a new object in bank for users input with word info and uuid and pushes the new object to our master
 //When word is added it will render it in a dynamic list
-function AddWord() {
-  const currentBank = JSON.parse(localStorage.getItem('wordBank') || '[]')
-
+function AddWord({ currentBank }) {
   const [words, setWords] = useState(currentBank);
 
   const addNewWord = (a, b) => {
